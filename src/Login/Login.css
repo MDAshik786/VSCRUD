@@ -1,0 +1,192 @@
+.main-form {
+  background-image: linear-gradient(to right,
+      rgba(0, 168, 255, 0.5),
+      rgba(185, 0, 255, 0.5)),
+    url("/public/images/bg-01.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.error-message {
+  padding-top: 0.3rem;
+  padding-right: 0.4rem;
+  position: absolute;
+  top: 3.5rem;
+  left: 1rem;
+}
+
+
+.form-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+}
+
+.flex-content {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  gap: 3rem;
+  padding: 3rem 0;
+  border-radius: 3rem;
+  /* position: relative; 
+     background: repeating-conic-gradient(from var(--a),#ff2770 0%, #ff2770 5%, transparent 5%,transparent 5%, transparent 40%, #ff2770 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 1.7rem;
+    z-index: 5; */
+}
+
+/* @property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+  @keyframes animate{
+    0%{
+      --a: 0deg;
+    }
+    100%{
+      --a:360deg
+    }
+  }
+   .flex-content::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a),#45f3ff 0%, #45f3ff 5%, transparent 5%,transparent 5%, transparent 40%, #45f3ff 50%);
+    animation: animate 4s linear infinite;
+    animation-delay: 1s;
+    border-radius: 1.7rem;
+  } */
+/* .flex-content::after{
+    content: '';
+      position: absolute;
+      inset: 0.5rem;
+      background-color: white;
+      background-color: transparent; 
+       z-index:-2;  
+      border-radius: 1rem; 
+      border: 0.5rem solid #25252b;
+    }  */
+.form-heading {
+  font: 2rem "Roboto", sans-serif;
+  font-weight: bold;
+
+  color: #481d52;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.input-element {
+  width: 22vw;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: #4b2354;
+  font: 1.3rem "Roboto", sans-serif;
+  background-color: #f9f3fa;
+}
+
+.input-element::placeholder {
+  color: #4b2354;
+  font: 1.3rem "Roboto", sans-serif;
+}
+
+.login-button {
+  padding: 1.4rem 3rem;
+  border-radius: 6rem;
+  border: none;
+  font-size: 1.1rem;
+  box-shadow: #9d85a2 0px 2px 4px 0px,
+    #cca4d5 0px 2px 16px 0px;
+  background-color: #cc6fe1;
+  border-radius: 1.5rem;
+}
+
+.login-button:active {
+  padding: 1rem 2rem;
+}
+
+.button-class {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.img-logo {
+  max-width: 8rem;
+}
+
+.or {
+  font: 1.1rem "Roboto", sans-serif;
+}
+
+.view-icon,
+.view-icon1 {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  color: #33043d;
+}
+
+.view-icon:active,
+.view-icon1 {
+  height: 1.4rem;
+  width: 1.4rem;
+  color: #c718ee;
+}
+
+.view-icon:hover,
+.view-icon1 {
+  color: #c50dee;
+}
+
+.view-icon1 {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.not-register {
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+}
+
+.sign-up {
+  color: #33043d;
+  text-decoration-line: underline;
+  font: 1.2rem "Roboto", sans-serif
+}
+
+.sign-up:hover {
+  opacity: 0.7;
+}
+
+.sign-up:active {
+  opacity: 0.7;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+
+}
+.forget{
+  text-align: end;
+  padding: 0.6rem 0.4rem 0 0rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.forget:hover,.forget:active{
+  opacity: 0.7;   
+  
+}

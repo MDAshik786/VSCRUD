@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Headland+One&family=Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+.div {
+    background-image: linear-gradient(to right,
+            #0b8793,
+            rgba(185, 0, 255, 0.5)),
+        url("/public/images/download.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.main-container {
+
+
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+
+}
+
+.sub-container {
+    background-color: whitesmoke;
+    border-radius: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    gap: 1.5rem;
+    box-shadow: #e1adde 10px 30px 60px -12px inset,
+        #0b8793 0px 18px 36px -18px inset;
+
+}
+
+.container {
+    font-size: 1.3rem;
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    grid-template-columns: 19rem 1fr;
+    width: 95%;
+    height: auto;
+    padding: 0.5rem 3rem;
+    background-image: linear-gradient(to right, #d1f6fa, #fcdafb);
+    align-items: start;
+    white-space: nowrap;
+    border-radius: 1rem;
+}
+
+.heading {
+
+    padding: 2rem 2rem 2rem 0;
+    font: 2.4rem 'Headland One', serif;
+
+}
+
+.content1 {
+    padding: 0 2rem 0 3rem;
+    text-align: start;
+}
+
+.head1 {
+    font-weight: bold;
+    font: 1.3rem 'Headland One', serif;
+    white-space: nowrap;
+    text-align: start;
+    padding-left: 4rem;
+}
+
+.delete-container1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+}
+
+.contents,
+.content {
+    font: 1.5rem 'Headland One', serif;
+    text-align: start;
+    padding-top: 1rem;
+}
+
+.buttons {
+    padding: 2rem 0 3rem 0;
+}
+
+.submite-button3 {
+    background-color: #50d2de;
+}
+
+.inner-name {
+    color: #360033;
+    font: 2.4rem 'Headland One', serif;
+}
