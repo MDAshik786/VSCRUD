@@ -75,7 +75,7 @@ const Form = ({
     }
   };
   let id;
-  if (data.single || data.singleData)
+  if ((data && data?.single) || (data && data?.singleData))
     id = data.single ? data.single.id : data.singleData.id;
   return (
     <div>
@@ -95,7 +95,7 @@ const Form = ({
                   data-testid="email-id"
                   onChange={handleInputChange}
                   onBlur={
-                    data.single || data.singleData
+                    (data && data.single) || (data && data.singleData)
                       ? () => editEmailValidation(id, formData?.email)
                       : () => EmailValidation(formData?.email)
                   }
@@ -246,7 +246,7 @@ const Form = ({
                 className="submite-button"
                 data-testid="submit"
               >
-                {data.single || data.singleData ? "Edit Data" : "submit"}
+                {(data && data.single) || (data && data.singleData) ? "Edit Data" : "submit"}
               </button>
             </div>
             <button className="cancel-button">

@@ -1,18 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Header.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BiMessageAdd } from "react-icons/bi";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Header = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  console.log(location.state,"locationHeader")
+  const loginVerification = location?.state?.loginVerification
+  const loginId = location?.state?.loginId
+  useEffect(() => {
+    !loginVerification && navigate("/")
+    console.log("first")
+  },[])
   function additem() {
-    navigate("/additem", { state: { loginId: location.state } });
+    navigate("/additem", { state: { loginId: location.state,loginVerification } });
   }
   function onClickLogo() {
-    location.state
-      ? navigate("/display", { state: { loginId: location.state } })
-      : navigate("/", { state: { loginId: location.state } });
+    loginId
+      ? navigate("/display", { state: { loginId,loginVerification} })
+      : navigate("/", { state: { loginId,loginVerification } });
+  }
+  const moveToLoginPage = () => {
+    navigate('/');
   }
   const path = location.pathname;
   return (
@@ -34,6 +46,7 @@ const Header = () => {
               onClick={additem}
             />
           )}
+          <button className="logoutButton" onClick={moveToLoginPage}> Logout <span ><AiOutlineLogout className="logout-img"/></span> </button>
         </div>
       </header>
     </main>

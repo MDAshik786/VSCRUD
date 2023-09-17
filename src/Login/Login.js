@@ -6,7 +6,6 @@ import { emailRegex } from "../Validation/Regex";
 import { apiUrl } from "../Constrains/URL";
 import { BiSolidShow } from "react-icons/bi";
 import { BsEyeSlashFill } from "react-icons/bs";
-//nvm install 18.17.0
 const Login = () => {
   const [loginError, setLoginError] = useState({});
   const [visible, setVisible] = useState(false);
@@ -27,7 +26,7 @@ const Login = () => {
         }
       );
       if (responseLogin.data === "admin") {
-        navigate("/display", { state: { loginId: true } });
+        navigate("/display", { state: { loginId: true,loginVerification:true } });
       } else if (responseLogin.data === "Incorrect Password")
         setLoginError((loginError) => ({
           ...loginError,
@@ -43,7 +42,7 @@ const Login = () => {
         }));
       else {
         navigate("/single", {
-          state: { singleData: responseLogin.data, loginId: false },
+          state: { singleData: responseLogin.data, loginId: false,loginVerification:true },
         });
       }
       return responseLogin.data;
@@ -90,7 +89,7 @@ const Login = () => {
     }
   }
   function moveToFromPage() {
-    navigate("/additem", { state: { loginId: false } });
+    navigate("/additem", { state: { loginId: false,loginVerification:true } });
   }
   function visibleHandeler() {
     setVisible(!visible);

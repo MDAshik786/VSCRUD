@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./PageAndSearch.css";
 import DataTable from "../MainDisplayPage/DataTable";
 import { returnPageNationRange } from "../utils__/PageNation_Utils";
@@ -16,7 +16,7 @@ const PageAndSearch = ({
   toGetDateAndTime,
 }) => {
   const [pageNation, setPageNation] = useState({
-    pageNo: 2,
+    pageNo: 1,
     pageLimit: 10,
   });
 
@@ -36,12 +36,15 @@ const PageAndSearch = ({
     return lastTenApiData.length;
   };
   const totalPage = Math.ceil(getLength() / pageNation.pageLimit);
-  if (pageNation.pageNo > totalPage) {
-    setPageNation((pagenation) => ({
-      ...pagenation,
-      pageNo: totalPage,
-    }));
+  console.log(pageNation.pageNo,totalPage)
+  useEffect(() => {
+  if (pageNation.pageNo < 1) {
+    setPageNation({ ...pageNation, pageNo: 1 });
+  } else if (pageNation.pageNo > totalPage) {
+    setPageNation({ ...pageNation, pageNo: totalPage });
   }
+},[setPageNation])
+  console.log(totalPage,"totalPage")
   const numbers = returnPageNationRange(
     totalPage,
     pageNation.pageNo,

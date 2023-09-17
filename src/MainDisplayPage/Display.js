@@ -8,15 +8,21 @@ import PageAndSearch from "../PageNation-SearchBar/PageAndSearch";
 import BottomtoTop from "./DataTable";
 
 const Display = () => {
-
+  
+  const location = useLocation();
+  console.log(location,"locationDisplay")
+  const loginVerification = location?.state?.loginVerification;
+  const loginId = location?.state?.loginId
+  const nevigate = useNavigate();
+    useEffect(() => {
+    !loginVerification && nevigate("/")
+  },[])
   const [apiData, setapiData] = useState("");
   const [search, setSearch] = useState("");
   const [Deleteid, setDeleteid] = useState("");
   const [arrow, setarrow] = useState(true);
   const [deleteConfirm , setDeleteConfirm] = useState(false);
  
-  const location = useLocation();
-  const loginId = location?.state?.loginId
   const callApiDataa = async () => {
     const data = await axios.get(apiUrl);
     setapiData(data.data);
@@ -46,10 +52,10 @@ const Display = () => {
     callApiDataa();
     setDeleteConfirm(false)
   };
-  const nevigate = useNavigate();
+
 
   const editValue = async (single) => {
-    nevigate("/additem", { state: { single,loginId:loginId } });
+    nevigate("/additem", { state: { single,loginId:loginId, loginVerification:true } });
   };
 
   function arrowFunction() {
@@ -63,8 +69,10 @@ const Display = () => {
       </p>
     );
   }
-
+ 
   const newApi = apiData.filter((data) => {
+    if(search === '')
+    return true
     return (
       data.fn.toLowerCase().includes(search.toLocaleLowerCase()) ||
       data.ln.toLowerCase().includes(search.toLocaleLowerCase()) ||
@@ -73,8 +81,8 @@ const Display = () => {
       data.address.toLowerCase().includes(search.toLocaleLowerCase())
     );
   });
-
-  const lastTenApiData = newApi.slice(-10);
+  console.log(newApi)
+  
 
   function formatDate(inputDate) {
     const parts = inputDate?.split("-");
@@ -94,7 +102,7 @@ const Display = () => {
   }
 
   function moveToSingleData(single) {
-    nevigate("/single", { state: {singleData:single,loginId:loginId} });
+    nevigate("/single", { state: {singleData:single,loginId:loginId,loginVerification:true} });
   }
 
   function toGetDateAndTime(currentDate) {
@@ -119,7 +127,7 @@ const Display = () => {
         arrowFunction={arrowFunction}
         search={search}
         setSearch={setSearch}
-        lastTenApiData={lastTenApiData}
+        lastTenApiData={newApi}
         editValue={editValue}
         deleteStart={deleteStart}
         moveToSingleData={moveToSingleData}

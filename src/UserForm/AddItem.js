@@ -14,7 +14,13 @@ const AddItem = () => {
   const [validEmail, setValidEmail] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
+  console.log(location.state,"locationAddItem")
   const loginId = location.state?.loginId;
+  const loginVerification = location.state?.loginVerification;
+  useEffect(() => {
+    !loginVerification && navigate("/")
+    console.log("ashhh")
+  },[])
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -42,8 +48,8 @@ const AddItem = () => {
     callApiData();
   }, []);
   useEffect(() => {
-    if (location.state.single || location.state.singleData) {
-      const array = location.state;
+    if (location?.state?.single || location?.state?.singleData) {
+      const array = location?.state;
       setFormData({
         email: array.single
           ? array?.single?.email
@@ -173,20 +179,21 @@ const AddItem = () => {
       }
     }
   };
-  const addedMessage = async(email) => {
-    const verification = await axios.post(`${apiUrl}/addedMessage/${email}`)
-    try{
-       console.log(verification.data,"verify")
-    }
-    catch(e){
-      console.log(e)
-    }
-  }
+  // const addedMessage = async(email) => {
+  //   console.log(`${apiUrl}/addedMessage/${email}`,"ddd")
+  //   const verification = await axios.post(`${apiUrl}/addedMessage/${email}`)
+  //   try{
+  //      console.log(verification.data,"verify")
+  //   }
+  //   catch(e){
+  //     console.log(e)
+  //   }
+  // }
   
   const getSingleData = async (email) => {
     const response = await axios.get(`${apiUrl}/identify/${email}`);
     navigate("/single", {
-      state: { singleData: response.data, loginId: loginId },
+      state: { singleData: response.data, loginId: loginId, loginVerification },
     });
     return response.data;
   };
@@ -200,15 +207,15 @@ const AddItem = () => {
       phone: formData.phone,
       address: formData.address,
     });
-    addedMessage(formData.email)
+    // addedMessage(formData.email)
     !loginId
       ? getSingleData(formData.email)
-      : navigate("/display", { state: { loginId } });
+      : navigate("/display", { state: { loginId, loginVerification } });
   };
-  const getEditSingleData = async (email) => {etDeleteid
+  const getEditSingleData = async (email) => {
     const response = await axios.get(`${apiUrl}/identify/${email}`);
     navigate("/single", {
-      state: { singleData: response.data, loginId: loginId },
+      state: { singleData: response.data, loginId: loginId, loginVerification },
     });
     return response.data;
   };
@@ -235,13 +242,13 @@ const AddItem = () => {
         }));
       }
       if (loginId) {
-        navigate("/display", { state: { loginId: loginId } });
+        navigate("/display", { state: { loginId: loginId, loginVerification } });
       } else {
         getEditSingleData(formData.email);
       }
       loginId
-        ? navigate("/display", { state: { loginId: loginId } })
-        : navigate("/single", { state: { loginId: loginId } });
+        ? navigate("/display", { state: { loginId: loginId, loginVerification } })
+        : navigate("/single", { state: { loginId: loginId, loginVerification } });
     } catch (error) {
     }
   };
@@ -256,13 +263,14 @@ const AddItem = () => {
       address: "",
       phone: "",
     });
+    setError('')
   }
   function Cancel() {
-    if (loginId) navigate("/display", { state: { loginId: loginId } });
+    if (loginId) navigate("/display", { state: { loginId: loginId, loginVerification } });
     else {
       if (location.state.singleData) {
         navigate("/single", {
-          state: { singleData: location.state.singleData.singleData, loginId },
+          state: { singleData: location.state.singleData.singleData, loginId, loginVerification },
         });
       } else navigate("/");
     }

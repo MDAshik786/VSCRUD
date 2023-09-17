@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainLayout from "../Layout__/MainLayout.js";
 import "./SingleData.css";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -7,20 +7,25 @@ import { apiUrl } from "../Constrains/URL.js";
 
 const SingleData = () => {
   const location = useLocation();
+  const loginVerification = location?.state?.loginVerification
   const nevigate = useNavigate();
+  useEffect(() => {
+    !loginVerification && nevigate("/")
+  },[])
+
   let singleData = location.state;
   const single = singleData;
-  const loginId = location.state.loginId;
-
+  const loginId = location?.state?.loginId;
+  console.log(location.state,"locationSingleData")
   const [deletBollean, setdeletBollean] = useState(false);
   
   function CancelConfirm() {
     loginId
-      ? nevigate("/display", { state: { loginId: loginId } })
-      : nevigate("/", { state: { loginId: loginId } });
+      ? nevigate("/display", { state: { loginId: loginId, loginVerification } })
+      : nevigate("/", { state: { loginId: loginId, loginVerification } });
   }
   function editConfirm() {
-    nevigate("/additem", { state: { singleData, loginId } });
+    nevigate("/additem", { state: { singleData, loginId, loginVerification } });
   }
   function deleteValue() {
     setdeletBollean(true);
@@ -31,8 +36,8 @@ const SingleData = () => {
   const deleteConfirmation = async (id) => {
     await axios.delete(`${apiUrl}/${id}`);
     loginId
-      ? nevigate("/display", { state: { loginId: loginId } })
-      : nevigate("/", { state: { loginId: loginId } });
+      ? nevigate("/display", { state: { loginId: loginId,loginVerification } })
+      : nevigate("/", { state: { loginId: loginId, loginVerification } });
   };
   function toGetDate(createdDate) {
     const dateObject = new Date(createdDate);
@@ -110,9 +115,9 @@ const SingleData = () => {
                 <div className="container">
                   <p className="head1">Created Date & Time:</p>
                   <p className="content1">
-                    {toGetDate(singleData?.singleData?.createdDate)}
+                    {toGetDate(singleData?.singleData?.createdDate)  }
                     <span className="con">
-                      {toGetTime(singleData?.singleData?.createdDate)}
+                      {  toGetTime(singleData?.singleData?.createdDate) }
                     </span>
                   </p>
                 </div>

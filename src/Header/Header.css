@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 7rem;
+  padding: 0.5rem 2rem 0.5rem 7rem;
   position: sticky;
 
 }
@@ -16,11 +16,31 @@
 
 .icons-img {
   width: 75%;
-  min-height: 4rem;
+  min-height: 3.4rem;
   color: aliceblue;
+  padding-right: 3rem;
 }
 
 .icons-img:active {
   min-height: 3rem;
   color: rgb(146, 144, 144);
+}
+.icons{
+  display: flex;
+  align-items: center;
+}
+.logoutButton{
+  font:1.4rem  "Roboto", sans-serif;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+ padding:0.4rem  1rem ;
+ border-radius: 0.5rem;
+}
+.logoutButton:active{
+   padding: 0.2rem 1rem;
+}
+.logout-img{
+  height: 1.8rem;
+  width: 1.5rem;
 }
