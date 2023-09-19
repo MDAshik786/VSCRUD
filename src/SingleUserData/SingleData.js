@@ -43,10 +43,10 @@ const SingleData = () => {
     const dateObject = new Date(createdDate);
     return dateObject.toLocaleDateString();
   }
-    function toGetTime(createdDate) {
-      const dateObject = new Date(createdDate);
-      return dateObject.toLocaleTimeString();
-    
+  function toGetTime(createdDate) {
+    const dateObject = new Date(createdDate);
+    const timeOptions = { hour12: true };
+    return dateObject.toLocaleTimeString(undefined, timeOptions);
   }
   return (
     <div className="div">

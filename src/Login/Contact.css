@@ -7,8 +7,8 @@
     justify-content: center;
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(to right,
-    #7b4397,
-    #dc2430),
+    #cb91e8,
+    #ee767e),
         url("/public/images/6346.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -18,8 +18,8 @@
 }
 .div-main{
     background-image: linear-gradient(to right,
-    #ce8aed,
-    #de6169),
+    #e7c9f5,
+    #f1bec2),
         url("/public/images/6346.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;

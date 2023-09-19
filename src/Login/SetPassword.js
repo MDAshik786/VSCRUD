@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "./SetPassword.css";
 import { BiSolidShow } from "react-icons/bi";
 import { BsEyeSlashFill } from "react-icons/bs";
+import axios from "axios";
+import { apiUrl } from "../Constrains/URL";
 
 const SetPassword = () => {
   const navigate = useNavigate();
@@ -35,7 +37,21 @@ const SetPassword = () => {
       [name]:value
      }))
   }
-
+  const loginPassword = async(email,password) => {
+    try{
+      const responsePassword = await axios.put(`${apiUrl}/updatePassword`,{email,password},
+      {headers:{
+        "content-Type" : 'application/json'
+      },})
+      console.log(responsePassword.data,"resetPassword")
+      if(responsePassword.data === 'ok'){
+        navigate("/")
+      }
+    }
+    catch(e){
+      console.log(e)
+    }
+  }
   useEffect(() => {
     setEmail(window.location.href.split('?')[1]);
   })
@@ -47,6 +63,9 @@ const SetPassword = () => {
     }
     else
     setPasswordError('')
+  if(passwordError === ''){
+    loginPassword(email,password.firstPassword)
+  }
   }
   return (
     <main className="main-conn">

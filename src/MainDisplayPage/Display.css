@@ -18,7 +18,7 @@
 .maindis {
 
   gap: 2rem;
-  padding: 3rem;
+  padding: 3rem 0;
   border-radius: 2rem;
 }
 
@@ -62,9 +62,7 @@
   border: 1px solid #060000;
 }
 
-.heading-child1 {
-  padding: 0 11rem;
-}
+
 
 .hcl-child-2 {
   padding: 0.5rem;
@@ -169,4 +167,7 @@
 
 .time {
   padding-left: 1rem;
+}
+.heading-child-last{
+  white-space:nowrap;
 }

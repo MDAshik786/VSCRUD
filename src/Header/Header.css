@@ -15,10 +15,11 @@
 }
 
 .icons-img {
-  width: 75%;
+  width: 6rem;
   min-height: 3.4rem;
   color: aliceblue;
   padding-right: 3rem;
+  cursor: pointer;
 }
 
 .icons-img:active {
@@ -43,4 +44,7 @@
 .logout-img{
   height: 1.8rem;
   width: 1.5rem;
+}
+img{
+  cursor: pointer;
 }

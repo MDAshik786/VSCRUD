@@ -7,6 +7,9 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: auto;
 }
 
 .error-message {
@@ -36,8 +39,8 @@
   gap: 3rem;
   padding: 3rem 0;
   border-radius: 3rem;
-  /* position: relative; 
-     background: repeating-conic-gradient(from var(--a),#ff2770 0%, #ff2770 5%, transparent 5%,transparent 5%, transparent 40%, #ff2770 50%);
+  position: relative; 
+     /* background: repeating-conic-gradient(from var(--a),#ff2770 0%, #ff2770 5%, transparent 5%,transparent 5%, transparent 40%, #ff2770 50%);
     animation: animate 4s linear infinite;
     border-radius: 1.7rem;
     z-index: 5; */
@@ -165,7 +168,8 @@
 .sign-up {
   color: #33043d;
   text-decoration-line: underline;
-  font: 1.2rem "Roboto", sans-serif
+  font: 1.2rem "Roboto", sans-serif;
+  cursor: pointer;
 }
 
 .sign-up:hover {

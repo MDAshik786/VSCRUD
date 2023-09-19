@@ -1,0 +1,41 @@
+@media (max-width: 1600px) {
+    .content-table {
+      font-size: 1rem; 
+    }
+  
+    .content-table th,
+    .content-table td {
+      padding: 0.6rem 0.2rem;
+    }
+  
+    .heading-child1 {
+      white-space: normal;
+    }
+  
+    .heading-child-last {
+      display: block; 
+      text-align: center; 
+    }
+  
+  }
+  @media(max-width: 1400px){
+    .content-table {
+        font-size: 0.5rem; 
+      }
+    
+      .content-table th,
+      .content-table td {
+        padding: 0.4rem 0.1rem;
+      }
+  } 
+  @media (max-width: 576px) {
+    .content-table {
+      font-size: 0.8rem; 
+    }
+  
+    .content-table th,
+    .content-table td {
+      padding: 0.4rem 0.1rem;
+    }
+  }
+  

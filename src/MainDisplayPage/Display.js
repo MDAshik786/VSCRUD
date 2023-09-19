@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Display.css";
+import "./MediaQueriesTable.css"
 import axios from "axios";
 import { apiUrl } from "../Constrains/URL";
 import { useLocation, useNavigate } from "react-router-dom";

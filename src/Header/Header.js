@@ -39,14 +39,16 @@ const Header = () => {
           />
         </div>
         <div className="icons">
-          {(path === "/" || path === "/display" || path === "/sdisplay") && (
+          {(path === "/" || path === "/display" || path === "/single") && (
             <BiMessageAdd
               className="icons-img"
               role="button"
               onClick={additem}
             />
           )}
+          {loginId && (
           <button className="logoutButton" onClick={moveToLoginPage}> Logout <span ><AiOutlineLogout className="logout-img"/></span> </button>
+          )}
         </div>
       </header>
     </main>
